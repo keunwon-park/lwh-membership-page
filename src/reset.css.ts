@@ -10,8 +10,13 @@ const textSizeAdjust: CustomStyle = {
   "text-size-adjust": "none",
 };
 
+globalStyle("#root", {
+  height: "100%",
+});
+
 globalStyle("*,:before,:after", {
   boxSizing: "border-box",
+  margin: 0,
 });
 
 globalStyle("html", textSizeAdjust);
