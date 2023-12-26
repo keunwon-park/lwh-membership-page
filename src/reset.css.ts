@@ -25,7 +25,7 @@ globalStyle("body, h1, h2, h3, h4, p, figure, blockquote, dl, dd", {
   marginBlockEnd: 0,
 });
 
-globalStyle('ul[role="list"], ol[role="list"]', {
+globalStyle("ul, ol, li", {
   listStyle: "none",
 });
 

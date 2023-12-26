@@ -32,17 +32,26 @@ export const profileImage = style({
 });
 
 export const introTextContainer = style({
-  position: "relative",
-  width: "50%",
-  flex: 1,
-  textAlign: "center",
-  // alignSelf: "flex-start",
-  marginTop: "4rem",
-  marginLeft: "2rem",
   display: "flex",
   flexDirection: "column",
+  width: "50%",
+  height: "100vh",
+  textAlign: "center",
+  // alignSelf: "flex-start",
+  // marginTop: "4rem",
+  marginLeft: "2rem",
+  overflow: "hidden",
 });
 
+export const introTextBox = style({
+  flex: "0 0 auto",
+  width: "100%",
+  height: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  overflow: "visible",
+});
 // export const introImageShadow = style({
 //   filter: `
 //     drop-shadow(0px 54px 55px rgba(0, 0, 0, 0.25))
