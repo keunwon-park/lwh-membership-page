@@ -1,7 +1,7 @@
 import * as styles from "./Introduction.css";
 import profileImage from "../../../assets/profile.png";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -25,54 +25,49 @@ const Introduction = () => {
       gsap.fromTo(textRef1.current, { opacity: 0 }, { opacity: 1, delay: 1, duration: 1 });
       gsap.fromTo(textRef2.current, { opacity: 0 }, { opacity: 1, delay: 1.5, duration: 1 });
       gsap.fromTo(textRef3.current, { opacity: 0 }, { opacity: 1, delay: 2, duration: 1 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: introContainer.current,
+          start: "top+=50 top",
+          end: "center+=300 bottom",
+          scrub: 2,
+          markers: {
+            startColor: "green",
+            endColor: "red",
+            fontSize: "12px",
+          },
+        },
+      });
+
+      tl.to(textRef1.current, { y: -100, opacity: 0, duration: 1 })
+        .to(textRef2.current, { y: -100, opacity: 0, duration: 1 }, "-=0.5")
+        .to(textRef3.current, { y: -100, opacity: 0, duration: 1 }, "-=0.5")
+        .to(secTextSection.current, { y: -853, opacity: 1, duration: 1 }, "-=1");
+
+      // tl2 animations
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: introContainer.current,
+          start: "center+=300 center",
+          end: "bottom center",
+          scrub: 2,
+          onEnter: () => {
+            console.log("Entered");
+          },
+          onLeave: () => {
+            console.log("Left");
+          },
+        },
+      });
+
+      tl2
+        .to(imageRef.current, { x: -100, opacity: 0, duration: 1, ease: "power1.inOut" })
+        .to(textRef4.current, { x: +100, opacity: 0, duration: 0.5, ease: "power1.inOut" }, "-=0.5")
+        .to(textRef5.current, { x: +100, opacity: 0, duration: 1, ease: "power1.inOut" }, "-=1");
     },
     { scope: introContainer }
   );
-
-  useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: introContainer.current,
-        start: "top+=50 top",
-        end: "center+=300 bottom",
-        scrub: 2,
-        markers: {
-          startColor: "green",
-          endColor: "red",
-          fontSize: "12px",
-        },
-      },
-    });
-
-    tl.to(textRef1.current, { y: -100, opacity: 0, duration: 1 })
-      .to(textRef2.current, { y: -100, opacity: 0, duration: 1 }, "-=0.5")
-      .to(textRef3.current, { y: -100, opacity: 0, duration: 1 }, "-=0.5")
-      .to(secTextSection.current, { y: -853, opacity: 1, duration: 1 }, "-=1");
-
-    const tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: introContainer.current,
-        start: "center+=300 center",
-        end: "bottom center",
-        scrub: 2,
-        onEnter: () => {
-          console.log("Entered");
-        },
-        onLeave: () => {
-          console.log("Left");
-        },
-      },
-    });
-
-    tl2.to(imageRef.current, { x: -100, opacity: 0, duration: 1, ease: "power1.inOut" });
-    tl2.to(textRef4.current, { x: +100, opacity: 0, duration: 0.5, ease: "power1.inOut" }, "-=0.5");
-    tl2.to(textRef5.current, { x: +100, opacity: 0, duration: 1, ease: "power1.inOut" }, "-=1");
-
-    return () => {
-      tl.kill();
-      tl2.kill();
-    };
-  }, []);
 
   return (
     <section ref={introContainer} className={styles.introContainer}>
