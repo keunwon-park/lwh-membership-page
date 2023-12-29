@@ -1,14 +1,17 @@
+import { useEffect } from "react";
 import Introduction from "./component/intro/Introduction";
+import UserBenefitsInfo from "./component/userBenefitsInfo/UserBenefitsInfo";
 import RootLayout from "./layout";
 // import * as styles from "./MainPage.css";
 const MainPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("scroll to top");
+  }, []);
   return (
     <RootLayout>
-      {/* <h1 className={styles.mainPageHeading}>page Test</h1> */}
       <Introduction />
-      <Introduction />
-      <Introduction />
-      <Introduction />
+      <UserBenefitsInfo />
     </RootLayout>
   );
 };
