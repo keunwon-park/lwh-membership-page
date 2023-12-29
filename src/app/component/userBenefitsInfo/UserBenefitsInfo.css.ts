@@ -3,14 +3,14 @@ import { style } from "@vanilla-extract/css";
 export const UserBenefitsInfoContainer = style({
   position: "relative",
   width: "100%",
-  height: "100vh",
-  minHeight: "100vh",
+  // minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "flex-start",
   border: "1px solid black",
   padding: "2rem",
+  height: "100%",
 });
 
 export const UserBenefitsHeading = style({
@@ -60,7 +60,7 @@ export const UserBenefitsList = style({
 export const UserBenefitsListItem = style({
   padding: "8px 0",
   borderBottom: "1px solid #ddd",
-  transition: "background-color 0.3s ease-in-out",
+  transition: "background-color 0.2s ease-in-out",
   selectors: {
     "&:last-child": {
       borderBottom: "none",
@@ -69,4 +69,8 @@ export const UserBenefitsListItem = style({
       backgroundColor: "#f9f9f9",
     },
   },
+});
+
+export const PlusImage = style({
+  margin: "50px 0",
 });

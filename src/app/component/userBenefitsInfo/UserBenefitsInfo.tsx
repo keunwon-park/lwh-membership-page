@@ -43,6 +43,8 @@ const UserBenefitsInfo = () => {
     benefitsData.map(() => React.createRef<HTMLDivElement>())
   );
   const benefitsContainerRef = useRef<HTMLDivElement>(null);
+  const plusImageRef = useRef<HTMLDivElement>(null);
+  const additionalInfoRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -50,13 +52,15 @@ const UserBenefitsInfo = () => {
         scrollTrigger: {
           trigger: container.current,
           start: "top-=270 top",
-          end: "center+=300 bottom",
-          scrub: 2,
+          end: "bottom bottom",
+          scrub: 3,
           markers: {
             startColor: "green",
             endColor: "red",
             fontSize: "12px",
           },
+          pin: true,
+          pinSpacing: true,
         },
       });
 
@@ -99,6 +103,13 @@ const UserBenefitsInfo = () => {
         { xPercent: 0, opacity: 1, duration: 2, ease: "power1.out" },
         "-=2"
       );
+
+      tl.fromTo(
+        plusImageRef.current,
+        { y: -100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 3, ease: "power1.out" },
+        "-=2"
+      );
     },
     { scope: container }
   );
@@ -121,6 +132,17 @@ const UserBenefitsInfo = () => {
             </ul>
           </div>
         ))}
+      </div>
+      <div className={styles.PlusImage} ref={plusImageRef}>
+        <img src='/src/assets/plus.png' alt='더하기' width={80} height={80} />
+      </div>
+      <div ref={additionalInfoRef}>
+        <p>후원해 주시는 모든 분께 !!</p>
+        <ul>
+          <li>결혼 시 축의금 더블</li>
+          <li>위치가 어디든 소환가능 (月 1회)</li>
+          <li>심부름 시키기 (상호간 동의 필요)</li>
+        </ul>
       </div>
     </section>
   );
