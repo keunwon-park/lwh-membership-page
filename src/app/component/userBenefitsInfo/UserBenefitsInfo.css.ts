@@ -3,32 +3,28 @@ import { style } from "@vanilla-extract/css";
 export const UserBenefitsInfoContainer = style({
   position: "relative",
   width: "100%",
-  // minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "flex-start",
-  border: "1px solid black",
-  padding: "2rem",
-  height: "100%",
+  border: "1px solid red",
+  padding: "3rem",
 });
 
 export const UserBenefitsHeading = style({
   fontSize: "4rem",
-  margin: "2rem 0",
+  marginBottom: "2rem",
 });
 
 export const UserBenefitsGridContainer = style({
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
   gap: "16px",
-  padding: "16px",
   justifyItems: "center",
   alignItems: "center",
 });
 
 export const UserBenefitsGridItem = style({
-  width: "70%",
   minWidth: "300px",
   padding: "8px",
   border: "1px solid #ccc",
@@ -71,6 +67,31 @@ export const UserBenefitsListItem = style({
   },
 });
 
+export const CommonBenefitsContainer = style({
+  position: "relative",
+  width: "100%",
+  height: "auto",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "stretch",
+  border: "1px solid black",
+  padding: "0 2rem",
+});
+
 export const PlusImage = style({
   margin: "50px 0",
+});
+
+export const CommonBenefitsList = style({
+  width: "100%",
+  fontSize: "3rem",
+  fontWeight: "bold",
+});
+
+export const ImageStyle = style({
+  maxWidth: "100%",
+  height: "auto",
+  borderRadius: "8px",
+  boxShadow:
+    "10px 10px 0px white, -10px -10px 0px white, 10px -10px 0px white, -10px 10px 0px white",
 });
