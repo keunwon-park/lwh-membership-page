@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const UserBenefitsInfoContainer = style({
   position: "relative",
   width: "100%",
+  height: "auto",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -73,8 +74,9 @@ export const CommonBenefitsContainer = style({
   height: "auto",
   display: "flex",
   flexDirection: "column",
-  alignItems: "stretch",
-  border: "1px solid black",
+  justifyContent: "center",
+  alignItems: "center",
+  border: "1px solid purple",
   padding: "0 2rem",
 });
 
@@ -86,6 +88,14 @@ export const CommonBenefitsList = style({
   width: "100%",
   fontSize: "3rem",
   fontWeight: "bold",
+  position: "absolute",
+  top: 0,
+  left: 0,
+  zIndex: 1,
+});
+
+export const ImageContainer = style({
+  position: "relative",
 });
 
 export const ImageStyle = style({
