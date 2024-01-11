@@ -1,12 +1,14 @@
 import * as styles from "./RootLayout.css";
+import Footer from "./component/common/footer/Footer";
 import HeaderNav from "./component/common/nav/HeaderNav";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className={styles.rootLayout}>
+    <main className={styles.rootLayout}>
       <HeaderNav />
       {children}
-    </div>
+      <Footer />
+    </main>
   );
 };
 
