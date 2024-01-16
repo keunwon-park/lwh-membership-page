@@ -29,13 +29,16 @@ const Introduction = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: introContainer.current,
-          start: "top+=50 top",
-          end: "center+=300 bottom",
-          scrub: 2,
+          start: "top top",
+          end: "bottom",
+          scrub: 1,
+          pin: introContainer.current,
+          pinSpacing: true,
+          anticipatePin: 1,
           markers: {
-            startColor: "green",
-            endColor: "red",
-            fontSize: "12px",
+            startColor: "pink",
+            endColor: "green",
+            fontSize: "30px",
           },
         },
       });
@@ -50,14 +53,8 @@ const Introduction = () => {
         scrollTrigger: {
           trigger: introContainer.current,
           start: "center+=300 center",
-          end: "bottom center",
+          end: "bottom",
           scrub: 2,
-          onEnter: () => {
-            console.log("Entered");
-          },
-          onLeave: () => {
-            console.log("Left");
-          },
         },
       });
 
@@ -70,7 +67,7 @@ const Introduction = () => {
   );
 
   return (
-    <section ref={introContainer} className={styles.introContainer}>
+    <section ref={introContainer} className={styles.introContainer} id='intro'>
       <div className={styles.introImageContainer} ref={imageRef}>
         <img className={styles.profileImage} src={profileImage} alt='프로필' />
       </div>

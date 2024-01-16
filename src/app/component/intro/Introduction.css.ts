@@ -3,7 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const introContainer = style({
   position: "relative",
   width: "100%",
-  minHeight: "100vh",
+  height: "100vh",
   display: "flex",
   flexDirection: "row",
   alignItems: "center",

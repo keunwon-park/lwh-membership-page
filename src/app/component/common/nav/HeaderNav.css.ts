@@ -7,6 +7,7 @@ export const headerNav = style({
   border: "1px solid black",
   width: "100%",
   backdropFilter: "blur(10px)",
+  zIndex: 100,
 });
 
 export const headerNavList = style({

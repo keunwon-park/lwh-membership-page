@@ -1,13 +1,22 @@
 import { style } from "@vanilla-extract/css";
 
+export const IContainer = style({
+  position: "relative",
+  width: "100%",
+  height: "100vh",
+  border: "2px solid black",
+  margin: "20px 0",
+});
+
 export const UserBenefitsInfoContainer = style({
   position: "relative",
   width: "100%",
+  minHeight: "100vh",
   height: "auto",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "flex-start",
+  justifyContent: "center",
   border: "1px solid red",
   padding: "3rem",
 });
@@ -66,42 +75,4 @@ export const UserBenefitsListItem = style({
       backgroundColor: "#f9f9f9",
     },
   },
-});
-
-export const CommonBenefitsContainer = style({
-  position: "relative",
-  width: "100%",
-  height: "auto",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  border: "1px solid purple",
-  padding: "0 2rem",
-});
-
-export const PlusImage = style({
-  margin: "50px 0",
-});
-
-export const CommonBenefitsList = style({
-  width: "100%",
-  fontSize: "3rem",
-  fontWeight: "bold",
-  position: "absolute",
-  top: 0,
-  left: 0,
-  zIndex: 1,
-});
-
-export const ImageContainer = style({
-  position: "relative",
-});
-
-export const ImageStyle = style({
-  maxWidth: "100%",
-  height: "auto",
-  borderRadius: "8px",
-  boxShadow:
-    "10px 10px 0px white, -10px -10px 0px white, 10px -10px 0px white, -10px 10px 0px white",
 });
