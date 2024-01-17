@@ -1,60 +1,33 @@
+import React from "react";
 import * as styles from "./CommonBenefits.css";
 import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { commonBenefitsData } from "../../../assets/CommonBenefits";
 
 const CommonBenefits = () => {
-  const secondHeadingRef = useRef<HTMLHeadingElement>(null);
-  const plusImageRef = useRef<HTMLDivElement>(null);
   const commonBenefitsContainerRef = useRef<HTMLDivElement>(null);
-  const commonBenefitsImageRef = useRef<HTMLImageElement>(null);
-  const commonBenefitsListRef = useRef<HTMLUListElement>(null);
+  const commonBenefitsHeadingRef = useRef<HTMLHeadingElement>(null);
+  const commonBenefitsItemWrapperRef = useRef<HTMLUListElement>(null);
+  const commonBenefitsItemListrefs = useRef<Array<React.RefObject<HTMLLIElement>>>(
+    commonBenefitsData.map(() => React.createRef<HTMLLIElement>())
+  );
 
   useGSAP(() => {
     // CommonBenefits 영역
     const commonBenefitsTl = gsap.timeline({
       scrollTrigger: {
         trigger: commonBenefitsContainerRef.current,
-        start: "center+=65% top",
+        start: "top top",
         end: "bottom",
         scrub: 1,
-        pin: commonBenefitsContainerRef.current,
+        pin: true,
         markers: {
           startColor: "purple",
           endColor: "red",
           fontSize: "20px",
         },
       },
-    });
-
-    commonBenefitsTl.from(plusImageRef.current, {
-      y: -100,
-      opacity: 0,
-      duration: 2,
-      ease: "power1.out",
-    });
-
-    // secondHeadingRef에 대한 애니메이션을 수정합니다.
-    commonBenefitsTl.fromTo(
-      secondHeadingRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "power1.out" }
-    );
-
-    commonBenefitsTl
-      .fromTo(
-        commonBenefitsImageRef.current,
-        { rotation: 0, scale: 0, borderRadius: 20 },
-        { y: -20, rotation: 360, scale: 0.7, borderRadius: 50, duration: 2, ease: "power1.out" }
-      )
-      .to(commonBenefitsImageRef.current, { opacity: 0.2, duration: 1, ease: "power1.out" });
-
-    // 리스트 래퍼 애니메이션
-    commonBenefitsTl.from(commonBenefitsListRef.current, {
-      x: "-40%",
-      opacity: 0,
-      duration: 1,
-      ease: "power1.In",
     });
   });
 
@@ -64,28 +37,31 @@ const CommonBenefits = () => {
       ref={commonBenefitsContainerRef}
       id='commonBenefitsContainer'
     >
-      <div className={styles.PlusImage} ref={plusImageRef}>
-        <img src='/src/assets/plus.png' alt='더하기' width={80} height={80} />
+      <div ref={commonBenefitsHeadingRef}>
+        <h2 className={styles.CommonBenefitsHeading}>멤버쉽 혜택</h2>
+        <p className={styles.CommonBenefitsComment}>
+          후원해주시는 모든 분들께 공통 혜택을 드립니다.
+        </p>
       </div>
-      <h2 ref={secondHeadingRef} className={styles.UserBenefitsHeading}>
-        후원 해주시는 모든 분께 !!
-      </h2>
-      {/* 리스트 wrapper */}
-      <div className={styles.ImageContainer}>
-        <img
-          ref={commonBenefitsImageRef}
-          src='/src/assets/gatsby.png'
-          alt='gatsby'
-          className={styles.ImageStyle}
-        />
-        <div className={styles.CommonBenefitsList}>
-          <ul ref={commonBenefitsListRef}>
-            <li>결혼 시 축의금 더블 + α</li>
-            <li>위치가 어디든 소환가능 (月 1회)</li>
-            <li>심부름 시키기 (상호간 동의 필요)</li>
-          </ul>
-        </div>
-      </div>
+      <ul className={styles.CommonBenefitsItemWrapper} ref={commonBenefitsItemWrapperRef}>
+        {commonBenefitsData.map((benefit, index) => (
+          <li
+            key={benefit.id}
+            className={styles.CommonBenefitItem}
+            ref={commonBenefitsItemListrefs.current[index]}
+          >
+            <img
+              src={benefit.image}
+              alt={`${benefit.title} 이미지`}
+              className={styles.CommonBenefitImage}
+            />
+            <div className={styles.CommonBenefitContent}>
+              <h3>{benefit.title}</h3>
+              <p>{benefit.benefit}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
