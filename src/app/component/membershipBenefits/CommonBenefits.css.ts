@@ -16,8 +16,8 @@ export const CommonBenefitsContainer = style({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  border: "1px solid purple",
-  margin: "10px 0",
+  // border: "1px solid purple",
+  // margin: "10px 0",
   padding: "60px 0",
   textAlign: "center",
 });
@@ -65,7 +65,7 @@ export const CommonBenefitItem = style({
 export const CommonBenefitImage = style({
   width: "100%",
   height: "auto",
-  border: "1px solid black",
+  borderBottom: "1px solid black",
 });
 
 export const CommonBenefitContent = style({
