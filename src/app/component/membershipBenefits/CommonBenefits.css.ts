@@ -17,19 +17,19 @@ export const CommonBenefitsContainer = style({
   justifyContent: "center",
   alignItems: "center",
   border: "1px solid purple",
-  padding: "0 2rem",
   margin: "10px 0",
+  padding: "60px 0",
   textAlign: "center",
 });
 
 export const CommonBenefitsHeading = style({
   fontSize: "4rem",
-  marginBottom: "2rem",
+  marginBottom: "1rem",
 });
 
 export const CommonBenefitsComment = style({
   fontSize: "2rem",
-  marginBottom: "2rem",
+  marginBottom: "3rem",
 });
 
 export const CommonBenefitsItemWrapper = style({
@@ -55,7 +55,6 @@ export const CommonBenefitItem = style({
   justifyContent: "center",
   alignItems: "center",
   border: "1px solid black",
-  padding: "2rem",
   "@media": {
     "screen and (max-width: 768px)": {
       width: "100%",
@@ -65,21 +64,28 @@ export const CommonBenefitItem = style({
 
 export const CommonBenefitImage = style({
   width: "100%",
-  height: "400px",
+  height: "auto",
   border: "1px solid black",
 });
 
 export const CommonBenefitContent = style({
   width: "100%",
-  fontSize: "1.5rem",
   fontWeight: "bold",
-  textAlign: "center",
-  marginTop: "1rem",
+  textAlign: "left",
+  alignSelf: "flex-start",
+  margin: "0.5rem 1rem 0.5rem 1rem",
   "@media": {
     "screen and (max-width: 768px)": {
       fontSize: "1rem",
     },
   },
+});
+export const CommonBenefitTitle = style({
+  fontSize: "1rem",
+});
+
+export const CommonBenefitDescription = style({
+  fontSize: "1.25rem",
 });
 
 export const CommonBenefitsList = style({

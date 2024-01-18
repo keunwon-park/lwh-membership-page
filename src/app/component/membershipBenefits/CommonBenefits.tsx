@@ -51,13 +51,13 @@ const CommonBenefits = () => {
             ref={commonBenefitsItemListrefs.current[index]}
           >
             <img
-              src={benefit.image}
+              src={benefit.image || "http://via.placeholder.com/338x259"}
               alt={`${benefit.title} 이미지`}
               className={styles.CommonBenefitImage}
             />
             <div className={styles.CommonBenefitContent}>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.benefit}</p>
+              <p className={styles.CommonBenefitTitle}>{benefit.title}</p>
+              <p className={styles.CommonBenefitDescription}>{benefit.benefit}</p>
             </div>
           </li>
         ))}
