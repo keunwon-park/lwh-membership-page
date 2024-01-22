@@ -35,11 +35,11 @@ const Introduction = () => {
           pin: introContainer.current,
           pinSpacing: true,
           anticipatePin: 1,
-          markers: {
-            startColor: "pink",
-            endColor: "green",
-            fontSize: "30px",
-          },
+          // markers: {
+          //   startColor: "pink",
+          //   endColor: "green",
+          //   fontSize: "30px",
+          // },
         },
       });
 

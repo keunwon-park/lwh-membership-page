@@ -12,11 +12,11 @@ const MembershipPrice = () => {
         start: "top",
         end: "bottom top-=150",
         scrub: 1,
-        markers: {
-          startColor: "deepskyblue",
-          endColor: "gray",
-          fontSize: "35px",
-        },
+        // markers: {
+        //   startColor: "deepskyblue",
+        //   endColor: "gray",
+        //   fontSize: "35px",
+        // },
       },
     });
     membershipPriceTl.fromTo(

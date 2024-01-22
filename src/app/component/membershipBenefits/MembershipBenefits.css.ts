@@ -1,11 +1,19 @@
 import { style } from "@vanilla-extract/css";
 
-export const IContainer = style({
+export const MembershipBenefitsContainer = style({
   position: "relative",
   width: "100%",
   height: "100vh",
   border: "2px solid black",
   margin: "20px 0",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  selectors: {
+    "& > div, ul": {
+      flex: 1,
+    },
+  },
 });
 
 export const UserBenefitsInfoContainer = style({
