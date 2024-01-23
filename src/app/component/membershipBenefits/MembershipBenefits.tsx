@@ -1,6 +1,6 @@
 import * as styles from "./MembershipBenefits.css";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import React from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -12,15 +12,17 @@ const MembershipBenefits = () => {
   const benefitsData = [
     {
       title: "라이트 혜택",
+      description: "저렴한 가격으로 맛보기 기능을 제공합니다",
       benefits: [
         { id: "1", benefit: "기상, 취침 시간 알림권" },
         { id: "2", benefit: "일 1회 게임 동원권" },
         { id: "3", benefit: "일 1회 롤 서렌 거부권" },
-        { id: "4", benefit: "하루 먹는 음식 사진 제공" },
+        { id: "4", benefit: "3끼 사진 제공" },
       ],
     },
     {
       title: "일반 혜택",
+      description: "기본 가격으로 표준혜택을 제공합니다",
       benefits: [
         { id: "1", benefit: "일반 혜택 1" },
         { id: "2", benefit: "일반 혜택 2" },
@@ -30,6 +32,7 @@ const MembershipBenefits = () => {
     },
     {
       title: "프리미엄 혜택",
+      description: "일반 혜택에 더해 여러 추가 기능을 제공합니다",
       benefits: [
         { id: "1", benefit: "프리미엄 혜택 1" },
         { id: "2", benefit: "프리미엄 혜택 2" },
@@ -38,6 +41,22 @@ const MembershipBenefits = () => {
       ],
     },
   ];
+  //-------------------
+  const [selectedTitle, setSelectedTitle] = useState("");
+
+  // 오른쪽 리스트 아이템 클릭 핸들러
+  const selectedBenefits = benefitsData.find(benefit => benefit.title === selectedTitle)?.benefits;
+  const handleItemClick = (title: string): void => {
+    setSelectedTitle(title);
+  };
+  
+  const handleKeyDown = (e: React.KeyboardEvent, title: string): void => {
+    if (e.key === 'Enter') {
+      handleItemClick(title);
+    }
+  };
+  //-------------------
+
   const MembershipBenefitsContainerRef = useRef<HTMLDivElement>(null);
   const membershipBenefitsRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -71,27 +90,36 @@ const MembershipBenefits = () => {
 
   return (
     <section ref={MembershipBenefitsContainerRef} className={styles.MembershipBenefitsContainer}>
-      <div>{/* 등급별 내용 */}</div>
+            <div style={{ flex: 1 }}>
+        <ul>
+          {selectedBenefits ? 
+            selectedBenefits.map(benefit => (
+              <li key={benefit.id}>{benefit.benefit}</li>
+            )) : <p>혜택을 선택하세요.</p>
+          }
+        </ul>
+      </div>
       <div>
         <div>
           <h2>등급별 혜택</h2>
           <button>Upgrade Now</button>
         </div>
+        <div style={{ flex: 1 }}>
         <ul>
           {benefitsData.map((benefit, index) => (
-            <li key={index}>
-              <div>
-                <img src='' alt='' />
-              </div>
-              <div>
-                <p>{benefit.title}</p>
-                {benefit.benefits.map((benefit) => (
-                  <p key={benefit.id}>{benefit.benefit}</p>
-                ))}
-              </div>
-            </li>
+                  <li key={index}>
+                  <button 
+                    onClick={() => handleItemClick(benefit.title)}
+                    onKeyDown={(e) => handleKeyDown(e, benefit.title)}
+                    style={{ all: 'unset', cursor: 'pointer' }}
+                  >
+                    <strong>{benefit.title}</strong>
+                    <p>{benefit.description}</p>
+                  </button>
+                </li>
           ))}
         </ul>
+      </div>
       </div>
     </section>
   );

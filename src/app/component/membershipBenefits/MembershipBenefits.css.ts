@@ -9,11 +9,6 @@ export const MembershipBenefitsContainer = style({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
-  selectors: {
-    "& > div, ul": {
-      flex: 1,
-    },
-  },
 });
 
 export const UserBenefitsInfoContainer = style({
