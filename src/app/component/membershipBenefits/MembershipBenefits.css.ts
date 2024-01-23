@@ -6,22 +6,48 @@ export const MembershipBenefitsContainer = style({
   height: "100vh",
   border: "2px solid black",
   margin: "20px 0",
+  padding: "40px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
+  alignItems: "center",
 });
 
-export const UserBenefitsInfoContainer = style({
-  position: "relative",
-  width: "100%",
-  minHeight: "100vh",
-  height: "auto",
+// 왼쪽 리스트 스타일
+export const BenefitsListWrapper = style({
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
   justifyContent: "center",
-  border: "1px solid red",
-  padding: "3rem",
+  height: "100%",
+  border: "2px solid black",
+  flex: "1",
+  alignItems: "center",
+});
+
+export const BenefitsListItem = style({
+  padding: "10px 15px",
+  margin: "10px 0",
+  borderBottom: "1px solid #ddd",
+  fontWeight: "bold", 
+  transition: "background-color 0.2s ease-in-out, color 0.2s ease-in-out",
+  selectors: {
+    "&:last-child": {
+      borderBottom: "none",
+    },
+    "&:hover": {
+      backgroundColor: "#f9f9f9",
+      color: "#333", 
+    },
+  },
+});
+
+// 오른쪽 리스트 스타일
+export const MembershipListWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  height: "100%",
+  border: "2px solid red",
 });
 
 export const UserBenefitsHeading = style({
@@ -29,53 +55,10 @@ export const UserBenefitsHeading = style({
   marginBottom: "2rem",
 });
 
-export const UserBenefitsGridContainer = style({
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "16px",
-  justifyItems: "center",
-  alignItems: "center",
-});
-
-export const UserBenefitsGridItem = style({
-  minWidth: "300px",
+export const MembershipListButton = style({
+  background: "transparent",
+  border: "none",
+  cursor: "pointer",
   padding: "8px",
-  border: "1px solid #ccc",
-  borderRadius: "4px",
-  textAlign: "center",
-  position: "relative",
-  selectors: {
-    "&:hover": {
-      transform: "scale(1.05)",
-    },
-  },
-});
-
-export const UserBenefitsTag = style({
-  position: "absolute",
-  top: 0,
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  background: "#3498db",
-  color: "#fff",
-  padding: "4px 8px",
-  borderRadius: "4px",
-});
-
-export const UserBenefitsList = style({
-  padding: "20px",
-});
-
-export const UserBenefitsListItem = style({
-  padding: "8px 0",
-  borderBottom: "1px solid #ddd",
-  transition: "background-color 0.2s ease-in-out",
-  selectors: {
-    "&:last-child": {
-      borderBottom: "none",
-    },
-    "&:hover": {
-      backgroundColor: "#f9f9f9",
-    },
-  },
+  textAlign: "left",
 });
