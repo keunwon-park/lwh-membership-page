@@ -12,6 +12,7 @@ const MembershipBenefits = () => {
 
   const membershipBenefitsContainerRef = useRef<HTMLDivElement>(null);
   const membershipBenefitsDataRef = useRef<HTMLUListElement>(null);
+  const isAnimatingRef = useRef(false);
 
   // Introduction의 end와 membershipBenefits의 start와 곂쳐서 문제가 발생했음. end에 start가 딸려서 올라옴
 
@@ -19,7 +20,9 @@ const MembershipBenefits = () => {
   const [selectedTitle, setSelectedTitle] = useState("");
   const selectedBenefits = membershipBenefitsData.find(benefit => benefit.title === selectedTitle)?.benefits;
   const handleItemClick = (title: string): void => {
-    setSelectedTitle(title);
+    if (!isAnimatingRef.current) {
+      setSelectedTitle(title);
+    }
   };
   
   const handleKeyDown = (e: React.KeyboardEvent, title: string): void => {
@@ -31,11 +34,16 @@ const MembershipBenefits = () => {
 
   useGSAP(() => {
     if (selectedBenefits && membershipBenefitsContainerRef.current){
+      isAnimatingRef.current = true;
       gsap.from(`.${styles.BenefitsListItem}`, { 
         opacity: 0, 
         x: -20, 
         stagger: 0.1, 
         duration: 0.5,
+        onComplete: () => {
+          isAnimatingRef.current = false; 
+          gsap.killTweensOf(`.${styles.BenefitsListItem}`);
+        }
       });
     }
   },  { dependencies:[selectedTitle],scope: membershipBenefitsDataRef }); 
