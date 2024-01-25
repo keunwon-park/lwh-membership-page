@@ -4,6 +4,7 @@ import CommonBenefits from "./component/membershipBenefits/CommonBenefits";
 import MembershipBenefits from "./component/membershipBenefits/MembershipBenefits";
 import MembershipPrice from "./component/membershipPrice/MembershipPrice";
 import { useEffect } from "react";
+import SponsorsReview from "./component/sponsorsReview/SponsorsReview";
 // import * as styles from "./MainPage.css";
 const MainPage = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const MainPage = () => {
       <Introduction />
       <CommonBenefits />
       <MembershipBenefits />
+      <SponsorsReview />
       <MembershipPrice />
     </RootLayout>
   );
