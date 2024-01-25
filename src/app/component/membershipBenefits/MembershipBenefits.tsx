@@ -9,13 +9,15 @@ import { membershipBenefitsData } from "../../../assets/MembershipBenefits";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const MembershipBenefits = () => {
+  const benefitsListRef = useRef<HTMLDivElement>(null);
   const membershipBenefitsContainerRef = useRef<HTMLDivElement>(null);
   const membershipBenefitsDataRef = useRef<HTMLUListElement>(null);
+  const membershipHeadingRef = useRef<HTMLDivElement>(null);
+  const membershipBenefitsListRef = useRef<HTMLUListElement>(null);
   const isAnimatingRef = useRef(false);
 
-  // Introduction의 end와 membershipBenefits의 start와 곂쳐서 문제가 발생했음. end에 start가 딸려서 올라옴
-
-  const [selectedTitle, setSelectedTitle] = useState("");
+  const defaultTitle = membershipBenefitsData[0].title;
+  const [selectedTitle, setSelectedTitle] = useState(defaultTitle);
   const selectedBenefits = membershipBenefitsData.find(
     (benefit) => benefit.title === selectedTitle,
   )?.benefits;
@@ -30,8 +32,48 @@ const MembershipBenefits = () => {
       handleItemClick(title);
     }
   };
-  //-------------------
 
+  useGSAP(() => {
+    const membershipBenefitsTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: membershipBenefitsContainerRef.current,
+        start: "top top",
+        end: "bottom top-=200",
+        pin: true,
+        scrub: true,
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    membershipBenefitsTl.from(membershipBenefitsContainerRef.current, {
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.InOut",
+    });
+
+    membershipBenefitsTl.from(membershipHeadingRef.current, {
+      yPercent: -50,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.InOut",
+    });
+
+    membershipBenefitsTl.from(membershipBenefitsListRef.current, {
+      xPercent: 50,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.InOut",
+    });
+
+    membershipBenefitsTl.from(benefitsListRef.current, {
+      xPercent: -50,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.InOut",
+    });
+  }
+  );
+  // benefitsList 전환 애니메이션
   useGSAP(
     () => {
       if (selectedBenefits && membershipBenefitsContainerRef.current) {
@@ -56,7 +98,7 @@ const MembershipBenefits = () => {
       ref={membershipBenefitsContainerRef}
       className={styles.MembershipBenefitsContainer}
     >
-      <div className={styles.BenefitsListWrapper}>
+      <div ref={benefitsListRef} className={styles.BenefitsListWrapper}>
         <div className={styles.ImageWrapper}>
           <img className={styles.ImageStyle} src={"https://via.placeholder.com/400"} alt="" />
         </div>
@@ -73,11 +115,11 @@ const MembershipBenefits = () => {
         </ul>
       </div>
       <div className={styles.MembershipListWrapper}>
-        <div className={styles.MembershipHeadingWrapper}>
+        <div ref={membershipHeadingRef} className={styles.MembershipHeadingWrapper}>
           <h2 className={styles.MembershipHeading}>등급별 혜택</h2>
           <button className={styles.UpgradeButton}>Upgrade Now</button>
         </div>
-        <ul>
+        <ul ref={membershipBenefitsListRef}>
           {membershipBenefitsData.map((benefit, index) => (
             <li key={index} className={styles.MembershipListItem}>
               <img
