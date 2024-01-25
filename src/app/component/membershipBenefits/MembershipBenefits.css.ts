@@ -5,7 +5,6 @@ export const MembershipBenefitsContainer = style({
   position: "relative",
   width: "100%",
   height: "100vh",
-  border: "2px solid black",
   margin: "20px 0",
   padding: "20px",
   display: "flex",
@@ -17,13 +16,13 @@ export const MembershipBenefitsContainer = style({
 // 왼쪽 리스트 스타일
 export const BenefitsListWrapper = style({
   display: "flex",
+  flex: "1",
   flexDirection: "column",
   justifyContent: "flex-start",
   alignItems: "center",
   width: "100%",
   height: "100%",
-  border: "2px solid black",
-  flex: "1",
+  padding: "20px",
 });
 
 export const ImageWrapper = style({
@@ -32,7 +31,7 @@ export const ImageWrapper = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "flex-start",
-  marginBottom: "20px"
+  marginBottom: "20px",
 });
 
 export const ImageStyle = style({
@@ -54,6 +53,7 @@ export const BenefitsListItem = style({
   fontWeight: "bold",
   textAlign: "left",
   width: "100%",
+  listStyle: "inside",
   transition: "background-color 0.2s ease-in-out, color 0.2s ease-in-out",
   selectors: {
     "&:last-child": {
