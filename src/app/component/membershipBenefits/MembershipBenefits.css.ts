@@ -9,41 +9,35 @@ export const MembershipBenefitsContainer = style({
   padding: "20px",
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-between",
+  justifyContent: "center",
   alignItems: "center",
 });
 
 // 왼쪽 리스트 스타일
 export const BenefitsListWrapper = style({
   display: "flex",
-  flex: "1",
   flexDirection: "column",
-  justifyContent: "flex-start",
-  alignItems: "center",
-  width: "100%",
-  height: "100%",
+  justifyContent: "flex-end",
+  alignItems: "flex-end",
   padding: "20px",
 });
 
 export const ImageWrapper = style({
-  flex: "3",
   width: "100%",
+  maxWidth: "600px",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "flex-start",
   marginBottom: "20px",
 });
 
 export const ImageStyle = style({
   width: "100%",
-  height: "auto",
+  height: "100%",
 });
 
 export const BenefitsList = style({
   flex: 2,
   margin: "0",
-  width: "80%",
-  alignSelf: "flex-start",
+  width: "70%",
 });
 
 export const BenefitsListItem = style({
@@ -70,8 +64,9 @@ export const BenefitsListItem = style({
 export const MembershipListWrapper = style({
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
-  height: "100%",
+  justifyContent: "center",
+  // width: "50%",
+  maxHeight: '90vh',
   border: "1px solid #e1e1e1",
   padding: "60px 20px 20px 20px",
   boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
