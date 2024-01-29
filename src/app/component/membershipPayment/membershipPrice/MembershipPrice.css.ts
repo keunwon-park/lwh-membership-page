@@ -7,8 +7,12 @@ export const MembershipPriceContainer = style({
   width: "100%",
   justifyContent: "center",
   alignItems: "center",
-  padding: "20px",
-  border: "1px solid #ddd",
+});
+
+export const MembershipPriceHeading = style({
+  fontSize: "40px",
+  fontWeight: "bold",
+  margin: "40px 0",
 });
 
 export const MembershipLevelList = style({
@@ -25,7 +29,6 @@ export const MembershipLevelItem = style({
   width: "100%",
   height: "100%",
   padding: "20px",
-  border: "1px solid #ddd",
   borderRadius: "4px",
   margin: "10px",
   gap: "10px",

@@ -1,20 +1,21 @@
 
+import { useRef } from "react";
 import { paymentData } from "../../../../assets/PaymentData";
 import * as styles from "./MembershipPrice.css";
 
 const MembershipPrice = () => {
-
+  const membershipPriceContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className={styles.MembershipPriceContainer}>
-    <h2>멤버쉽 가격 안내</h2>
+    <section className={styles.MembershipPriceContainer} ref={membershipPriceContainerRef}>
+    <h2 className={styles.MembershipPriceHeading}>멤버쉽 가격 및 후원하기</h2>
     <ul className={styles.MembershipLevelList}>
       {paymentData.map((membershipLevel) => (
         <li key={membershipLevel.title} className={styles.MembershipLevelItem}>
           <strong>{membershipLevel.title}</strong>
           <div>
             <img
-              src="https://via.placeholder.com/100"
+              src="https://via.placeholder.com/300"
               alt={membershipLevel.title}
               />
           </div>
