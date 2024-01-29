@@ -1,5 +1,5 @@
 import * as styles from './SponsorsReview.css'
-import { sponsorsReviewData } from '../../../assets/SponsorsReviewData';
+import { sponsorsReviewData } from '../../../../assets/SponsorsReviewData';
 const SponsorsReview = () => {
   return (
     <section className={styles.SponsorsReviewSection}>
