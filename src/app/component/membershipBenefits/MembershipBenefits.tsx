@@ -71,8 +71,7 @@ const MembershipBenefits = () => {
       duration: 0.5,
       ease: "power2.InOut",
     });
-  }
-  );
+  });
   // benefitsList 전환 애니메이션
   useGSAP(
     () => {
@@ -100,7 +99,11 @@ const MembershipBenefits = () => {
     >
       <div ref={benefitsListRef} className={styles.BenefitsListWrapper}>
         <div className={styles.ImageWrapper}>
-          <img className={styles.ImageStyle} src={"https://via.placeholder.com/400"} alt="" />
+          <img
+            className={styles.ImageStyle}
+            src={"https://via.placeholder.com/400"}
+            alt=""
+          />
         </div>
         <ul ref={membershipBenefitsDataRef} className={styles.BenefitsList}>
           {selectedBenefits ? (
@@ -115,7 +118,10 @@ const MembershipBenefits = () => {
         </ul>
       </div>
       <div className={styles.MembershipListWrapper}>
-        <div ref={membershipHeadingRef} className={styles.MembershipHeadingWrapper}>
+        <div
+          ref={membershipHeadingRef}
+          className={styles.MembershipHeadingWrapper}
+        >
           <h2 className={styles.MembershipHeading}>등급별 혜택</h2>
           <button className={styles.UpgradeButton}>Upgrade Now</button>
         </div>

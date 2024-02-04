@@ -9,9 +9,9 @@ const CommonBenefits = () => {
   const commonBenefitsContainerRef = useRef<HTMLDivElement>(null);
   const commonBenefitsHeadingRef = useRef<HTMLHeadingElement>(null);
   const commonBenefitsItemWrapperRef = useRef<HTMLUListElement>(null);
-  const commonBenefitsItemListrefs = useRef<Array<React.RefObject<HTMLLIElement>>>(
-    commonBenefitsData.map(() => React.createRef<HTMLLIElement>())
-  );
+  const commonBenefitsItemListrefs = useRef<
+    Array<React.RefObject<HTMLLIElement>>
+  >(commonBenefitsData.map(() => React.createRef<HTMLLIElement>()));
 
   useGSAP(() => {
     // CommonBenefits 영역
@@ -38,7 +38,7 @@ const CommonBenefits = () => {
         ref.current,
         { xPercent: -50, opacity: 0 },
         { xPercent: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
-        "<0.5"
+        "<0.5",
       );
     });
   });
@@ -47,7 +47,7 @@ const CommonBenefits = () => {
     <section
       className={styles.CommonBenefitsContainer}
       ref={commonBenefitsContainerRef}
-      id='commonBenefitsContainer'
+      id="commonBenefitsContainer"
     >
       <div ref={commonBenefitsHeadingRef}>
         <h2 className={styles.CommonBenefitsHeading}>멤버쉽 혜택</h2>
@@ -55,7 +55,10 @@ const CommonBenefits = () => {
           후원해주시는 모든 분들께 공통 혜택을 드립니다.
         </p>
       </div>
-      <ul className={styles.CommonBenefitsItemWrapper} ref={commonBenefitsItemWrapperRef}>
+      <ul
+        className={styles.CommonBenefitsItemWrapper}
+        ref={commonBenefitsItemWrapperRef}
+      >
         {commonBenefitsData.map((benefit, index) => (
           <li
             key={benefit.id}
@@ -69,7 +72,9 @@ const CommonBenefits = () => {
             />
             <div className={styles.CommonBenefitContent}>
               <p className={styles.CommonBenefitTitle}>{benefit.title}</p>
-              <p className={styles.CommonBenefitDescription}>{benefit.benefit}</p>
+              <p className={styles.CommonBenefitDescription}>
+                {benefit.benefit}
+              </p>
             </div>
           </li>
         ))}

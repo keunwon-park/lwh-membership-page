@@ -66,7 +66,7 @@ export const MembershipListWrapper = style({
   flexDirection: "column",
   justifyContent: "center",
   // width: "50%",
-  maxHeight: '90vh',
+  maxHeight: "90vh",
   border: "1px solid #e1e1e1",
   padding: "60px 20px 20px 20px",
   boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
@@ -87,17 +87,17 @@ export const MembershipHeading = style({
 
 export const UpgradeButton = style({
   fontSize: "1rem",
-  padding: "10px 20px", 
-  borderRadius: "2px", 
-  border: "1px solid #333", 
-  cursor: "pointer", 
-  backgroundColor: "transparent", 
-  fontWeight: "bold", 
-  transition: "all 0.3s ease", 
+  padding: "10px 20px",
+  borderRadius: "2px",
+  border: "1px solid #333",
+  cursor: "pointer",
+  backgroundColor: "transparent",
+  fontWeight: "bold",
+  transition: "all 0.3s ease",
   selectors: {
     "&:hover": {
-      backgroundColor: "#333", 
-      color: "#fff", 
+      backgroundColor: "#333",
+      color: "#fff",
     },
   },
 });
@@ -106,9 +106,9 @@ export const MembershipListItem = style({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  marginBottom: "24px", 
-  padding: "16px", 
-  borderRadius: "4px", 
+  marginBottom: "24px",
+  padding: "16px",
+  borderRadius: "4px",
   border: "1px solid #e1e1e1",
   transition: "background-color 0.2s ease-in-out",
   selectors: {
@@ -119,7 +119,7 @@ export const MembershipListItem = style({
 });
 
 export const MembershipListImage = style({
-  marginRight: "16px", 
+  marginRight: "16px",
   objectFit: "cover",
 });
 

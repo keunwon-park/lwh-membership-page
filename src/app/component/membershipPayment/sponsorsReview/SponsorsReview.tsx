@@ -1,5 +1,5 @@
-import * as styles from './SponsorsReview.css'
-import { sponsorsReviewData } from '../../../../assets/SponsorsReviewData';
+import * as styles from "./SponsorsReview.css";
+import { sponsorsReviewData } from "../../../../assets/SponsorsReviewData";
 const SponsorsReview = () => {
   return (
     <section className={styles.SponsorsReviewSection}>
@@ -12,7 +12,7 @@ const SponsorsReview = () => {
                 <img
                   src="https://via.placeholder.com/25"
                   alt={`${review.name}의 프로필 이미지`}
-                   />
+                />
                 <span>{review.name}</span>
               </div>
               <div className={styles.SponsorsReviewRating}>
@@ -25,7 +25,7 @@ const SponsorsReview = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SponsorsReview
+export default SponsorsReview;
