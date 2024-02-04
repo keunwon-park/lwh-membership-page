@@ -1,6 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-export const rootLayout = style({
+export const RootLayout = style({
   overflow: "hidden",
+});
+
+export const MainContainer = style({
   padding: "0 170px",
 });

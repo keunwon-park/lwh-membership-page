@@ -4,9 +4,9 @@ import HeaderNav from "./component/common/nav/HeaderNav";
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <main className={styles.rootLayout}>
+    <main className={styles.RootLayout}>
       <HeaderNav />
-      {children}
+      <section className={styles.MainContainer}>{children}</section>
       <Footer />
     </main>
   );
