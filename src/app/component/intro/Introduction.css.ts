@@ -8,7 +8,6 @@ export const introContainer = style({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-  border: "1px solid black",
 });
 
 export const introImageContainer = style({
@@ -37,8 +36,6 @@ export const introTextContainer = style({
   width: "50%",
   height: "100vh",
   textAlign: "center",
-  // alignSelf: "flex-start",
-  // marginTop: "4rem",
   marginLeft: "2rem",
   overflow: "hidden",
 });
@@ -50,20 +47,18 @@ export const introTextBox = style({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  overflow: "visible",
+  fontSize: "70px",
+  lineHeight: "1.3",
 });
-// export const introImageShadow = style({
-//   filter: `
-//     drop-shadow(0px 54px 55px rgba(0, 0, 0, 0.25))
-//     drop-shadow(0px -12px 30px rgba(0, 0, 0, 0.12))
-//     drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.12))
-//     drop-shadow(0px 12px 13px rgba(0, 0, 0, 0.17))
-//     drop-shadow(0px -3px 5px rgba(0, 0, 0, 0.09))
-//   `,
-// });
 
-export const svgText = style({
-  fontSize: "40",
-  fontFamily: "Leckerli One, cursive",
-  fill: "#448aff",
+export const firstIntroText = style({
+  fontWeight: "bold",
+  margin: "0",
+  padding: "0",
+});
+
+export const secIntroText = style({
+  fontWeight: "bold",
+  margin: "0",
+  padding: "0",
 });

@@ -3,9 +3,7 @@ import profileImage from "../../../assets/profile.png";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const Introduction = () => {
   const introContainer = useRef<HTMLDivElement>(null);
@@ -13,90 +11,61 @@ const Introduction = () => {
   const textSection = useRef<HTMLDivElement>(null);
   const firstTextSection = useRef<HTMLDivElement>(null);
   const secTextSection = useRef<HTMLDivElement>(null);
-  const textRef1 = useRef<SVGTextElement>(null);
-  const textRef2 = useRef<SVGTextElement>(null);
-  const textRef3 = useRef<SVGTextElement>(null);
-  const textRef4 = useRef<SVGTextElement>(null);
-  const textRef5 = useRef<SVGTextElement>(null);
 
   useGSAP(
     () => {
-      gsap.fromTo(
-        imageRef.current,
-        { opacity: 0 },
-        { opacity: 1, delay: 0.5, duration: 2 },
-      );
-      gsap.fromTo(
-        textRef1.current,
-        { opacity: 0 },
-        { opacity: 1, delay: 1, duration: 1 },
-      );
-      gsap.fromTo(
-        textRef2.current,
-        { opacity: 0 },
-        { opacity: 1, delay: 1.5, duration: 1 },
-      );
-      gsap.fromTo(
-        textRef3.current,
-        { opacity: 0 },
-        { opacity: 1, delay: 2, duration: 1 },
-      );
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: introContainer.current,
-          start: "top top",
-          end: "bottom",
-          scrub: 1,
-          pin: introContainer.current,
-          pinSpacing: true,
-          anticipatePin: 1,
-          // markers: {
-          //   startColor: "pink",
-          //   endColor: "green",
-          //   fontSize: "30px",
-          // },
-        },
+      gsap.from(imageRef.current, {
+        xPercent: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.In",
       });
 
-      tl.to(textRef1.current, { y: -100, opacity: 0, duration: 1 })
-        .to(textRef2.current, { y: -100, opacity: 0, duration: 1 }, "-=0.5")
-        .to(textRef3.current, { y: -100, opacity: 0, duration: 1 }, "-=0.5")
-        .to(
-          secTextSection.current,
-          { y: -853, opacity: 1, duration: 1 },
-          "-=1",
-        );
-
-      // tl2 animations
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: introContainer.current,
-          start: "center+=300 center",
-          end: "bottom",
-          scrub: 2,
-        },
+      gsap.from(`.${styles.firstIntroText}`, {
+        xPercent: +30,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        delay: 0.5,
+        ease: "power2.In",
       });
-
-      tl2
-        .to(imageRef.current, {
-          x: -100,
-          opacity: 0,
-          duration: 1,
-          ease: "power1.inOut",
-        })
-        .to(
-          textRef4.current,
-          { x: +100, opacity: 0, duration: 0.5, ease: "power1.inOut" },
-          "-=0.5",
-        )
-        .to(
-          textRef5.current,
-          { x: +100, opacity: 0, duration: 1, ease: "power1.inOut" },
-          "-=1",
-        );
     },
-    { scope: introContainer },
+    { scope: firstTextSection },
+  );
+
+  useGSAP(
+    () => {
+      const introductionTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: introContainer.current,
+          start: "top+=20 top",
+          end: "bottom top-=300",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      introductionTl.to(`.${styles.firstIntroText}`, {
+        xPercent: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power2.InOut",
+      });
+
+      if (secTextSection.current === null) return;
+      introductionTl.to(secTextSection.current.querySelectorAll('p'), {
+        y: -853,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power2.InOut",
+      });
+
+    },
+    { scope: textSection },
   );
 
   return (
@@ -106,57 +75,13 @@ const Introduction = () => {
       </div>
       <div id="box" className={styles.introTextContainer} ref={textSection}>
         <div className={styles.introTextBox} ref={firstTextSection}>
-          <svg viewBox="0 -100 500 400" xmlns="http://www.w3.org/2000/svg">
-            <text
-              ref={textRef1}
-              x="52%"
-              y="5%"
-              textAnchor="middle"
-              fontSize={"70px"}
-            >
-              안녕하세요
-            </text>
-            <text
-              ref={textRef2}
-              x="45%"
-              y="25%"
-              textAnchor="middle"
-              fontSize={"70px"}
-            >
-              가난한백수
-            </text>
-            <text
-              ref={textRef3}
-              x="44%"
-              y="45%"
-              textAnchor="middle"
-              fontSize={"70px"}
-            >
-              이원형입니다
-            </text>
-          </svg>
+          <p className={styles.firstIntroText}>안녕하세요</p>
+          <p className={styles.firstIntroText}>가난한 백수</p>
+          <p className={styles.firstIntroText}>이원형입니다</p>
         </div>
         <div className={styles.introTextBox} ref={secTextSection}>
-          <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
-            <text
-              ref={textRef4}
-              x="40%"
-              y="50%"
-              textAnchor="middle"
-              fontSize={"60px"}
-            >
-              멤버쉽을
-            </text>
-            <text
-              ref={textRef5}
-              x="40%"
-              y="70%"
-              textAnchor="middle"
-              fontSize={"60px"}
-            >
-              소개합니다
-            </text>
-          </svg>
+          <p className={styles.secIntroText}>멤버쉽을</p>
+          <p className={styles.secIntroText}>소개합니다</p>
         </div>
       </div>
     </section>
