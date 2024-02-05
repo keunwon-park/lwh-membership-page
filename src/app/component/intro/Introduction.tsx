@@ -1,5 +1,4 @@
 import * as styles from "./Introduction.css";
-import profileImage from "../../../assets/profile.png";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -71,7 +70,7 @@ const Introduction = () => {
   return (
     <section ref={introContainer} className={styles.introContainer} id="intro">
       <div className={styles.introImageContainer} ref={imageRef}>
-        <img className={styles.profileImage} src={profileImage} alt="프로필" />
+        <img className={styles.profileImage} src={`/images/profile.png`} alt="프로필" />
       </div>
       <div id="box" className={styles.introTextContainer} ref={textSection}>
         <div className={styles.introTextBox} ref={firstTextSection}>
