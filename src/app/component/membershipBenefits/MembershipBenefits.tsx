@@ -1,12 +1,8 @@
-import * as styles from "./MembershipBenefits.css";
-import gsap from "gsap";
 import { useRef, useState } from "react";
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import React from "react";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+import * as styles from "./MembershipBenefits.css";
 import { membershipBenefitsData } from "../../../assets/MembershipBenefits";
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const MembershipBenefits = () => {
   const benefitsListRef = useRef<HTMLDivElement>(null);
