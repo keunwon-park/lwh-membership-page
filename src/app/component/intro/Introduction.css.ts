@@ -31,6 +31,7 @@ export const profileImage = style({
 });
 
 export const introTextContainer = style({
+  position: "relative",
   display: "flex",
   flexDirection: "column",
   width: "50%",
@@ -41,6 +42,7 @@ export const introTextContainer = style({
 });
 
 export const introTextBox = style({
+  position: "relative",
   flex: "0 0 auto",
   width: "100%",
   height: "100vh",
