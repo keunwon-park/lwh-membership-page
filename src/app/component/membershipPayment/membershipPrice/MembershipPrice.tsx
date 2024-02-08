@@ -20,7 +20,7 @@ const MembershipPrice = () => {
             <strong>{membershipLevel.title}</strong>
             <div>
               <img
-                src="https://via.placeholder.com/300"
+                src={`/${membershipLevel.image}`}
                 alt={membershipLevel.title}
               />
             </div>
