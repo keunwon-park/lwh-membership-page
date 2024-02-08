@@ -10,26 +10,33 @@ export const MembershipPriceContainer = style({
 });
 
 export const MembershipPriceHeading = style({
-  fontSize: "40px",
+  fontSize: "50px",
   fontWeight: "bold",
   margin: "40px 0",
 });
 
 export const MembershipLevelList = style({
+  width: "80%",
   display: "flex",
-  width: "100%",
-  gap: "30px",
   justifyContent: "center",
 });
 
 export const MembershipLevelItem = style({
   display: "flex",
   flexDirection: "column",
+  justifyContent: "center",
   alignItems: "center",
-  width: "100%",
+  width: "50%",
   height: "100%",
-  padding: "20px",
   borderRadius: "4px",
-  margin: "10px",
   gap: "10px",
+  fontWeight: "bold",
+  fontSize: "20px",
+  margin: "0 10px",
+});
+
+export const MembershipImageWrapper = style({
+  width: "50%",
+  overflow: "hidden",
+  borderRadius: "4px",
 });

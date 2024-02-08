@@ -18,7 +18,7 @@ const MembershipPrice = () => {
             className={styles.MembershipLevelItem}
           >
             <strong>{membershipLevel.title}</strong>
-            <div>
+            <div className={styles.MembershipImageWrapper}>
               <img
                 src={`/${membershipLevel.image}`}
                 alt={membershipLevel.title}
